@@ -55,8 +55,8 @@ const Customer = () => {
     if (customer && customer.fruits?.length > 0) {
       const customerFruits = customer.fruits.map((fruit) => ({
         ...fruit,
-        min: 0,
-        max: 0,
+        min: fruit.min || 0,
+        max: fruit.max || 0,
       }));
 
       setFruitsState(customerFruits);
