@@ -109,6 +109,37 @@ const Customer = () => {
     setSelectedFruit(null);
   };
 
+  const validateData = (customer: CustomerType): boolean => {
+    const maximumAllowedFruit =
+      customer.maxTotalFruit - customer.minTotalFruit + 1;
+
+    const totalMaxFruit = customer.fruits.reduce(
+      (accumulator: number, currentValue: FruitWithMinMax): number => {
+        return accumulator + currentValue.max;
+      },
+      0
+    );
+
+    const totalMinFruit = customer.fruits.reduce(
+      (accumulator: number, currentValue: FruitWithMinMax): number => {
+        return accumulator + currentValue.min;
+      },
+      0
+    );
+
+    console.log("validating data", {
+      maximumAllowedFruit,
+      totalMaxFruit,
+      minAllowedFruit: customer.minTotalFruit,
+      totalMinFruit,
+    });
+
+    if (totalMaxFruit > maximumAllowedFruit) return false;
+    if (totalMinFruit < customer.minTotalFruit) return false;
+
+    return true;
+  };
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -133,6 +164,11 @@ const Customer = () => {
           : [...fruitsState];
 
       console.log("submitting", { updatedCustomer });
+
+      if (!validateData(updatedCustomer))
+        return alert(
+          "Fruit preferences cannot exceed the minimum or maximum fruit in the basket!"
+        );
       mutation.mutate(updatedCustomer);
     }
   };
