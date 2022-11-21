@@ -4,6 +4,7 @@ services:
   web:
     build:
       context: .
+      target: base
     command: pnpm start
     ports:
       - 3000:3000
@@ -17,6 +18,7 @@ services:
   api:
     build:
       context: .
+      target: base
     command: pnpm start:server
     ports:
       - 3001:3001

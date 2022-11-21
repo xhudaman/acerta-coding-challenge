@@ -1,46 +1,70 @@
-# Getting Started with Create React App
+# Acerta Code Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## How to run this app
 
-## Available Scripts
+Start the application using one of the following commands and then visit [http://localhost:3000/customers](http://localhost:3000/customers) to start using the application.
 
-In the project directory, you can run:
+### Docker Compose
 
-### `npm start`
+```bash
+  docker-compose run web sh -c "pnpm install" && \
+  docker-compose up
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Running Locally
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### PNPM
 
-### `npm test`
+```bash
+  pnpm install && pnpm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Yarn
 
-### `npm run build`
+```bash
+  yarn install && yarn start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### NPM
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+  npm install && npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Building and running the images in Docker
 
-### `npm run eject`
+### Building
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Build Frontend
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+  docker build -t acerta-challenge-matthew-ui --target web .
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Build Backend
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+  docker build -t acerta-challenge-matthew-api --target api .
+```
 
-## Learn More
+### Running
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Frontend
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+  docker run --rm -p 3000:3000 acerta-challenge-matthew-ui
+```
+
+#### Backend
+
+```bash
+  docker run --rm -p 3001:3001 acerta-challenge-matthew-api
+```
+
+## Design Decisions
+
+- **Typescript**: it helps validate I'm writing reliable code and gives me multiple developer experience improvements
+- **json-server**: I chose to use `json-server` and a json db for the sake of speed and flexibility as I designed this application. Had I chosen a more complete DB solution I would have had to spend too much time on setup and it would make this project less portable and easy to test
+- **React Query**: It has built in client side caching for requests, making it very efficient
+- **Fetch API**: Quickest way to send requests in a modern webapp without relying on external dependencies, given the simplicity of the app I decided against a more well rounded solution like Axios
+- **TailwindCSS**: Allows me to very quickly iterate on styling of components including hover and focus states, without adding unnecessary bloat commonly found in UI frameworks such as Bootstrap or MaterialUI
