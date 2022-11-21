@@ -1,9 +1,8 @@
-type Customer = {
+export type Customer = {
   id: number;
   name: string;
   minTotalFruit: number;
   maxTotalFruit: number;
-  fruit: Record<any,Number[]>
   fruits: FruitWithMinMax[]
 }
 
@@ -31,3 +30,15 @@ export const getFruits = async (): Promise<Fruit[]> => {
   const res = await fetch(`${process.env.REACT_APP_API_URL}/fruits`);
   return res.json();
 };
+
+export const updateCustomer = async (customer: Customer ): Promise<Customer> => {
+  const res = await fetch(`${process.env.REACT_APP_API_URL}/customers/${customer.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(customer)
+    
+  });
+  return res.json();
+}

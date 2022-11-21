@@ -5,234 +5,182 @@
       "name": "Anton",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 2,
       "name": "Bob",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 3,
       "name": "Charlie",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 4,
       "name": "Doug",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 5,
       "name": "Edward",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 6,
       "name": "Frank",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 7,
       "name": "George",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 8,
       "name": "Heather",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 9,
       "name": "Isabelle",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 10,
       "name": "Joan",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 11,
       "name": "Kirk",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 12,
       "name": "Leslie",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 13,
       "name": "Mike",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 14,
       "name": "Nancy",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 15,
       "name": "Oscar",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 16,
       "name": "Peter",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 17,
       "name": "Qaizer",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 18,
       "name": "Rachel",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 19,
       "name": "Sandy",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 20,
       "name": "Tom",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 21,
       "name": "Ursula",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 22,
       "name": "Victor",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 23,
       "name": "Walker",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 24,
       "name": "Xavier",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 25,
       "name": "Yusuf",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     },
     {
       "id": 26,
       "name": "Zoe",
       "minTotalFruit": 1,
       "maxTotalFruit": 10,
-      "fruit": {
-        "apple": [1, 14]
-      }
+      "fruits": []
     }
   ],
   "fruits": [

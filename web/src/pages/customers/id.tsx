@@ -1,8 +1,16 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { Listbox } from "@headlessui/react";
-import { useQuery } from "react-query";
-import { FruitWithMinMax, getCustomer, getFruits } from "../../scripts/api";
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import {
+  Customer as CustomerType,
+  FruitWithMinMax,
+  getCustomer,
+  getFruits,
+  updateCustomer,
+} from "../../scripts/api";
+import { FaPlus } from "react-icons/fa";
+import { BsChevronExpand } from "react-icons/bs";
 
 type fruit = {
   id: number;
@@ -11,6 +19,7 @@ type fruit = {
 
 const Customer = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [fruitsState, setFruitsState] = useState<FruitWithMinMax[] | []>([]);
   const {
     data: customer,
@@ -56,6 +65,22 @@ const Customer = () => {
 
   const [selectedFruit, setSelectedFruit] = useState<fruit | null>(null);
 
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation({
+    mutationFn: (customer: CustomerType) => {
+      mutationFn: return updateCustomer(customer);
+    },
+    onSuccess: async (data) => {
+      // Boom baby!
+      await queryClient.invalidateQueries({
+        queryKey: ["customers", data.id],
+      });
+
+      navigate("/customers");
+    },
+  });
+
   if (customerLoading || fruitsLoading) return <div>Loading...</div>;
   if (customerError) return <div>Error loading customer</div>;
   if (fruitsError) return <div>Error loading fruits</div>;
@@ -92,18 +117,27 @@ const Customer = () => {
     setSelectedFruit(null);
   };
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (customer) {
+      const updatedCustomer = { ...customer };
+
+      updatedCustomer.fruits =
+        updatedCustomer.fruits && updatedCustomer?.fruits.length > 0
+          ? [...updatedCustomer.fruits, ...fruitsState]
+          : [...fruitsState];
+
+      console.log("submitting", { updatedCustomer });
+      mutation.mutate(updatedCustomer);
+    }
+  };
   return (
     <div className="flex flex-col justify-center items-center w-full max-w-2xl py-6">
       <h2 className="text-2xl font-bold">{customer?.name}</h2>
       <form
         className="flex flex-col space-y-2 w-full justify-center items-center"
-        onSubmit={(event) => {
-          event.preventDefault();
-          console.log("submitting", {
-            totalMin: totalMinFruits.current?.value,
-            totalMax: totalMaxFruits.current?.value,
-          });
-        }}
+        onSubmit={handleSubmit}
       >
         <h3 className="text-xl font-semibold mb-2 mr-auto">
           Total Fruit in Basket
@@ -139,13 +173,23 @@ const Customer = () => {
         <h3 className="text-xl font-semibold mb-2 mr-auto">
           Fruit Preferences
         </h3>
-        <div className="flex flex-col justify-center items-center w-full">
+        <div className="flex justify-center items-center w-full space-x-4">
           {filteredFruit && (
             <Listbox value={selectedFruit} onChange={setSelectedFruit}>
               <div className="relative mt-1 w-1/2">
-                <Listbox.Button className="bg-gray-200 px-4 py-2 rounded w-full">
-                  {selectedFruit?.name || "Select Fruit"}
-                </Listbox.Button>
+                <div className="flex justify-center items-center space-x-4">
+                  <Listbox.Button className="flex bg-gray-200 px-4 py-2 rounded w-full text-left items-center">
+                    {selectedFruit?.name || "Select Fruit"}
+                    <BsChevronExpand className="ml-auto text-xl" />
+                  </Listbox.Button>
+                  <button
+                    type="button"
+                    className="rounded bg-gray-400 px-4 py-2 hocus:bg-gray-600 text-white"
+                    onClick={handleAddFruit}
+                  >
+                    <FaPlus className="text-2xl" />
+                  </button>
+                </div>
                 <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                   {filteredFruit.map((fruit) => (
                     <Listbox.Option
@@ -160,20 +204,13 @@ const Customer = () => {
                       value={fruit}
                     >
                       {({ selected }) => (
-                        <>
-                          <span
-                            className={`block truncate ${
-                              selected ? "font-medium" : "font-normal"
-                            }`}
-                          >
-                            {fruit.name}
-                          </span>
-                          {selected ? (
-                            <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
-                              Check
-                            </span>
-                          ) : null}
-                        </>
+                        <span
+                          className={`block truncate ${
+                            selected ? "font-medium" : "font-normal"
+                          }`}
+                        >
+                          {fruit.name}
+                        </span>
                       )}
                     </Listbox.Option>
                   ))}
@@ -181,9 +218,6 @@ const Customer = () => {
               </div>
             </Listbox>
           )}
-          <button type="button" onClick={handleAddFruit}>
-            Add Fruit
-          </button>
         </div>
         <table className="w-full max-w-2xl table-auto border-collapse">
           <thead>
