@@ -1,26 +1,19 @@
 import { Link } from "react-router-dom";
+import { useQuery } from "react-query";
+import { getCustomers } from "../../scripts/api";
 
 const CustomersPage = () => {
-  const customers = [
-    {
-      id: "a",
-      name: "Anton",
-      minTotalFruit: 1,
-      maxTotalFruit: 10,
-    },
-    {
-      id: "b",
-      name: "Bob",
-      minTotalFruit: 1,
-      maxTotalFruit: 10,
-    },
-    {
-      id: "c",
-      name: "Charlie",
-      minTotalFruit: 1,
-      maxTotalFruit: 10,
-    },
-  ];
+  const {
+    data: customers,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["customers"],
+    queryFn: () => getCustomers(),
+  });
+
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error loading customers...</div>;
   return (
     <div className="flex justify-center items-center p-6 ">
       <table className="w-full max-w-2xl table-auto border-collapse">
@@ -37,7 +30,7 @@ const CustomersPage = () => {
           </tr>
         </thead>
         <tbody>
-          {customers.map((customer) => (
+          {customers?.map((customer) => (
             <tr key={customer.id}>
               <td className="border border-black text-left px-4">
                 <Link

@@ -3,9 +3,13 @@ import ReactDOM from "react-dom/client";
 import "./styles/index.css";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { QueryClientProvider, QueryClient } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 import CustomersPage from "./pages/customers/customers.page";
 import HomePage from "./pages/home/home.page";
 import Customer from "./pages/customers/id";
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -30,7 +34,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools />
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </React.StrictMode>
 );
 

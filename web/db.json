@@ -1,0 +1,276 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "name": "Anton",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 2,
+      "name": "Bob",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 3,
+      "name": "Charlie",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 4,
+      "name": "Doug",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 5,
+      "name": "Edward",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 6,
+      "name": "Frank",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 7,
+      "name": "George",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 8,
+      "name": "Heather",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 9,
+      "name": "Isabelle",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 10,
+      "name": "Joan",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 11,
+      "name": "Kirk",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 12,
+      "name": "Leslie",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 13,
+      "name": "Mike",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 14,
+      "name": "Nancy",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 15,
+      "name": "Oscar",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 16,
+      "name": "Peter",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 17,
+      "name": "Qaizer",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 18,
+      "name": "Rachel",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 19,
+      "name": "Sandy",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 20,
+      "name": "Tom",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 21,
+      "name": "Ursula",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 22,
+      "name": "Victor",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 23,
+      "name": "Walker",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 24,
+      "name": "Xavier",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 25,
+      "name": "Yusuf",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    },
+    {
+      "id": 26,
+      "name": "Zoe",
+      "minTotalFruit": 1,
+      "maxTotalFruit": 10,
+      "fruit": {
+        "apple": [1, 14]
+      }
+    }
+  ],
+  "fruits": [
+    {
+      "id": 1,
+      "name": "Apple"
+    },
+    {
+      "id": 2,
+      "name": "Blueberry"
+    },
+    {
+      "id": 3,
+      "name": "Cranberry"
+    },
+    {
+      "id": 4,
+      "name": "Durian"
+    },
+    {
+      "id": 5,
+      "name": "Elderberry"
+    },
+    {
+      "id": 6,
+      "name": "Figs"
+    },
+    {
+      "id": 7,
+      "name": "Grapes"
+    },
+    {
+      "id": 8,
+      "name": "Honeyberry"
+    },
+    {
+      "id": 9,
+      "name": "Icaco"
+    }
+  ]
+}

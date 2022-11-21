@@ -10,4 +10,17 @@ services:
     working_dir: /src
     volumes:
       - ${PWD}/web/:/src
+    environment:
+      REACT_APP_API_URL: http://localhost:3001
+    depends_on:
+      - api
+  api:
+    build:
+      context: .
+    command: pnpm start:server
+    ports:
+      - 3001:3001
+    working_dir: /src
+    volumes:
+      - ${PWD}/web/:/src
     
