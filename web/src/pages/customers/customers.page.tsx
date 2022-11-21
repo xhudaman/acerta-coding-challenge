@@ -19,12 +19,12 @@ const CustomersPage = () => {
       <table className="w-full max-w-2xl table-auto border-collapse">
         <thead>
           <tr className="bg-gray-400">
-            <th className="border border-black text-left px-4">ID</th>
-            <th className="border border-black text-left px-4">Name</th>
-            <th className="border border-black text-left px-4">
+            <th className="border border-black text-center px-4">ID</th>
+            <th className="border border-black text-center px-4">Name</th>
+            <th className="border border-black text-center px-4">
               Min Total Fruits
             </th>
-            <th className="border border-black text-left px-4">
+            <th className="border border-black text-center px-4">
               Max Total Fruits
             </th>
           </tr>
@@ -32,7 +32,7 @@ const CustomersPage = () => {
         <tbody>
           {customers?.map((customer) => (
             <tr key={customer.id}>
-              <td className="border border-black text-left px-4">
+              <td className="border border-black text-center px-4">
                 <Link
                   to={`/customers/${customer.id}`}
                   className="text-blue-400 underline hocus:text-blue-600 hocus:outline-none"
@@ -40,13 +40,13 @@ const CustomersPage = () => {
                   {customer.id}
                 </Link>
               </td>
-              <td className="border border-black text-left px-4">
+              <td className="border border-black text-center px-4">
                 {customer.name}
               </td>
-              <td className="border border-black text-left px-4">
+              <td className="border border-black text-center px-4">
                 {customer.minTotalFruit}
               </td>
-              <td className="border border-black text-left px-4">
+              <td className="border border-black text-center px-4">
                 {customer.maxTotalFruit}
               </td>
             </tr>
