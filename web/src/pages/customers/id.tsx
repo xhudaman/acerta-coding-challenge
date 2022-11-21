@@ -42,11 +42,18 @@ const Customer = () => {
 
   const filteredFruit = useMemo(() => {
     if (fruits) {
-      return fruitsState.length > 0
-        ? fruits.filter((fruit: Fruit) =>
-            fruitsState.find((item) => item.id !== fruit.id)
-          )
-        : fruits;
+      const filtered =
+        fruitsState.length > 0
+          ? fruits.filter(
+              (fruit: Fruit) =>
+                !fruitsState.find((item) => item.id === fruit.id)
+            )
+          : fruits;
+      console.log("filtering fruit", {
+        length: fruitsState.length,
+        filtered,
+      });
+      return filtered;
     }
   }, [fruits, fruitsState]);
 
