@@ -4,6 +4,7 @@ import { Listbox } from "@headlessui/react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import {
   Customer as CustomerType,
+  Fruit,
   FruitWithMinMax,
   getCustomer,
   getFruits,
@@ -11,11 +12,6 @@ import {
 } from "../../scripts/api";
 import { FaPlus } from "react-icons/fa";
 import { BsChevronExpand } from "react-icons/bs";
-
-type fruit = {
-  id: number;
-  name: string;
-};
 
 const Customer = () => {
   const { id } = useParams();
@@ -44,7 +40,7 @@ const Customer = () => {
   const filteredFruit = useMemo(() => {
     if (fruits) {
       return fruitsState.length > 0
-        ? fruits.filter((fruit: fruit) =>
+        ? fruits.filter((fruit: Fruit) =>
             fruitsState.find((item) => item.id !== fruit.id)
           )
         : fruits;
@@ -63,7 +59,7 @@ const Customer = () => {
     }
   }, [customer]);
 
-  const [selectedFruit, setSelectedFruit] = useState<fruit | null>(null);
+  const [selectedFruit, setSelectedFruit] = useState<Fruit | null>(null);
 
   const queryClient = useQueryClient();
 
@@ -72,9 +68,9 @@ const Customer = () => {
       mutationFn: return updateCustomer(customer);
     },
     onSuccess: async (data) => {
-      // Boom baby!
       await queryClient.invalidateQueries({
         queryKey: ["customers", data.id],
+        refetchActive: true,
       });
 
       navigate("/customers");
@@ -121,7 +117,18 @@ const Customer = () => {
     event.preventDefault();
 
     if (customer) {
-      const updatedCustomer = { ...customer };
+      const minTotalFruit = totalMinFruits.current?.value
+        ? parseInt(totalMinFruits.current?.value)
+        : customer.minTotalFruit;
+      const maxTotalFruit = totalMaxFruits.current?.value
+        ? parseInt(totalMaxFruits.current?.value)
+        : customer.maxTotalFruit;
+
+      const updatedCustomer = {
+        ...customer,
+        minTotalFruit,
+        maxTotalFruit,
+      };
 
       updatedCustomer.fruits =
         updatedCustomer.fruits && updatedCustomer?.fruits.length > 0
